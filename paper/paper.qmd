@@ -1,3 +1,5 @@
+# Stream Chemistry Changes Pre and Post Hurricane Hugo
+
 ## Background
 This analysis reproduces figure 3 from Schaefer et al. (2000), which shows stream chemistry changes in four Puerto Rican streams pre and post Hurricane Hugo.
 
@@ -6,8 +8,11 @@ Raw water chemistry data .csv files were sourced from McDowell and International
 
 ## Methods
 Raw water chemistry data for four sample sites were processed as follows: 
+
 - Data for each site were cleaned. 
+
 - Moving averages for each ion of interest at were calculated for each site for every 9 weeks during the sampling period. The moving_average() function was created to automate this step.
+
 - Data for each site were joined together into one data frame.
 
 ## Results
