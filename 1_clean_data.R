@@ -36,43 +36,46 @@ PRM_moving_averages <- moving_average(PRM_Truncated)
 
 # Join data for all sites into one data frame ----------------------------
 
-sites_joined_clean <- BQ1_moving_averages |>
-  full_join(
-    BQ2_moving_averages,
-    by = c(
-      "window_start",
-      "site_ID",
-      "NH4N_ugL",
-      "Ca_mgL",
-      "K_mgL",
-      "Mg_mgL",
-      "NO3N_ugL"
-    )
-  ) |>
-  full_join(
-    BQ3_moving_averages,
-    by = c(
-      "window_start",
-      "site_ID",
-      "NH4N_ugL",
-      "Ca_mgL",
-      "K_mgL",
-      "Mg_mgL",
-      "NO3N_ugL"
-    )
-  ) |>
-  full_join(
-    PRM_moving_averages,
-    by = c(
-      "window_start",
-      "site_ID",
-      "NH4N_ugL",
-      "Ca_mgL",
-      "K_mgL",
-      "Mg_mgL",
-      "NO3N_ugL"
-    )
-  )
+# SOPHIA ADDED THIS LINE TO REPLACE THE COMMENTED OUT FULL_JOINS BELOW
+sites_joined_clean <- rbind(BQ1_moving_averages,BQ2_moving_averages,BQ3_moving_averages,PRM_moving_averages)
+
+# sites_joined_clean <- BQ1_moving_averages |>
+#   full_join(
+#     BQ2_moving_averages,
+#     by = c(
+#       "window_start",
+#       "site_ID",
+#       "NH4N_ugL",
+#       "Ca_mgL",
+#       "K_mgL",
+#       "Mg_mgL",
+#       "NO3N_ugL"
+#     )
+#   ) |>
+#   full_join(
+#     BQ3_moving_averages,
+#     by = c(
+#       "window_start",
+#       "site_ID",
+#       "NH4N_ugL",
+#       "Ca_mgL",
+#       "K_mgL",
+#       "Mg_mgL",
+#       "NO3N_ugL"
+#     )
+#   ) |>
+#   full_join(
+#     PRM_moving_averages,
+#     by = c(
+#       "window_start",
+#       "site_ID",
+#       "NH4N_ugL",
+#       "Ca_mgL",
+#       "K_mgL",
+#       "Mg_mgL",
+#       "NO3N_ugL"
+#     )
+#   )
 
 # Write .csv for data frame of joined water chemistry data for all sites ----
 
