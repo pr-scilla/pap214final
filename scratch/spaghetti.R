@@ -253,12 +253,7 @@ sites_smoothed_joined <- BQ1_smoothed |>
 
 # Plotting smoothed and joined data for all sites together ---------------
 
-Figure_3_Reproduction <- sites_joined_clean |>
-  pivot_longer(
-    cols = c(NH4N_ugL, Ca_mgL, Mg_mgL, NO3N_ugL, K_mgL),
-    names_to = "ion",
-    values_to = "concentration"
-  )
+Figure_3_Reproduction <- read_csv("output/figure-3-reproduction-data.csv")
 
 ggplot(
   data = Figure_3_Reproduction,
@@ -268,7 +263,7 @@ ggplot(
     color = site_ID
   )
 ) +
-  geom_point() +
   geom_line() +
-  scale_x_date(name = "Years") +
-  facet_wrap(~ion, scales = "free")
+  labs(x = "Years", y = "Ion Concentration", color = "Site ID") +
+  theme(legend.justification = c("right", "top")) +
+  facet_grid(vars(Figure_3_Reproduction$ion), scales = "free", switch = "y")
