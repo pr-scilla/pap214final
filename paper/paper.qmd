@@ -62,6 +62,4 @@ ggplot(
     scales = "free",
     switch = "y"
   )
-# Save plot as an image
-ggsave("../figs/figure-3-reproduction.png")
 ```
