@@ -1,7 +1,7 @@
 # Stream Chemistry Changes Pre and Post Hurricane Hugo
 
 ## Background
-The goal of this analysis is to approximate Figure 3 from [Schaefer et al. (2000)](../README.md#references), which shows stream chemistry changes at four Puerto Rican stream sample sites pre and post Hurricane Hugo.
+The goal of this analysis is to approximate Figure 3 from [Schaefer et al. (2000)](https://github.com/pr-scilla/pap214final/blob/main/README.md), which shows stream chemistry changes at four Puerto Rican stream sample sites pre and post Hurricane Hugo.
 
 Hurricane Hugo made landfall on Puerto Rico in late September of 1989. This analysis shows 9 week moving average concentrations of potassium (K_mgL),  nitrate-N (NO3N_ugL), magnesium (Mg_mgL), calcium (Ca_mgL) and ammonium-N (NH4N_ugL) between January 1, 1988 and December 31, 1994 at the following sample sites:
 
@@ -14,7 +14,7 @@ Hurricane Hugo made landfall on Puerto Rico in late September of 1989. This anal
 - Puente Roto Rio Mameyes (PRM)
 
 ## Data
-Raw water chemistry data .csv files were sourced from [McDowell and International Institute Of Tropical Forestry (IITF) (2024)](../README.md#references).
+Raw water chemistry data .csv files were sourced from [McDowell and International Institute Of Tropical Forestry (IITF) (2024)](https://github.com/pr-scilla/pap214final/blob/main/README.md).
 
 ## Methods
 Water chemistry data for the sample sites were processed as follows: 
@@ -31,6 +31,9 @@ Water chemistry moving averages for the period of interest were plotted for each
 Average concentrations for each ion are displayed in separate graphs.
 
 The product of this analysis suggests that the ammonium-N (NH4N_ugL) concentration data from late 1988 through the end of the sampling period of interest are missing from the raw data files.
+
+![figure-3-reproduction.png](../figs/figure-3-reproduction.png)
+
 ```{r}
 library(tidyverse)
 
