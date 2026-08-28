@@ -7,7 +7,7 @@ BQ1 <- read_csv("data/QuebradaCuenca1-Bisley.csv")
 BQ2 <- read_csv("data/QuebradaCuenca2-Bisley.csv")
 BQ3 <- read_csv("data/QuebradaCuenca3-Bisley.csv")
 PRM <- read_csv("data/RioMameyesPuenteRoto.csv")
-LTER <- read_csv("data/LUQ_LTER_MDLs.csv")
+LTER <- read_csv("data/LUQ_LTER_MDLs.csv") # contains units for water chemistry measurements.
 
 # Keep only relevant data columns for each site --------------------------
 
@@ -36,7 +36,7 @@ PRM_moving_averages <- moving_average(PRM_Truncated)
 
 # Join data for all sites into one data frame ----------------------------
 
-# rbind () suggested by Sophia Solano for combining sites into one data frame.
+# rbind () was suggested by Sophia Solano for combining sites into one data frame.
 sites_joined_clean <- rbind(
   BQ1_moving_averages,
   BQ2_moving_averages,
@@ -44,7 +44,7 @@ sites_joined_clean <- rbind(
   PRM_moving_averages
 )
 
-# Create data frame to use in figure 3 reproduction plot ----------------------
+# Create data frame for figure 3 reproduction data ----------------------
 
 Figure_3_Reproduction_Data <- sites_joined_clean |>
   pivot_longer(
