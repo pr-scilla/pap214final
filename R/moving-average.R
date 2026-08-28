@@ -1,4 +1,6 @@
-# The input to this function should be a data frame containing stream chemistry data
+# Input for this function is streamdata. When using moving_average ()
+# function in a script, call a truncated stream site water chemistry
+# data table.
 moving_average <- function(streamdata) {
   # Initialize a tibble to contain the results
   result <- tibble(
@@ -15,17 +17,16 @@ moving_average <- function(streamdata) {
     site_ID = streamdata$Sample_ID[1]
   )
 
-  # Fill in the iterator and sequence
+  # Iterator runs in sequence from first to last row of result tibble.
   for (i in 1:nrow(result)) {
-    # Create variables for the start and end of the current window
+    # Variables for the start and end of the current window
     w1 <- result$window_start[i]
     w2 <- w1 + weeks(9)
 
-    # Create a logical vector, called "in_window", that says which samples are inside the window
-    # Hint: you'll compare sample dates to the start and end of the window
+    # in_window defines which samples are within the sample window.
     in_window <- w1 <= streamdata$Sample_Date & streamdata$Sample_Date < w2
 
-    # Use indexing to pull out the ion concentrations that fall inside the window
+    # Indexing pulls out the ion concentrations that fall inside the window
 
     nh4n_window <- streamdata$`NH4-N`[in_window]
     ca_window <- streamdata$Ca[in_window]
