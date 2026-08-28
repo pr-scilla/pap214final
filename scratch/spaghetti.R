@@ -267,6 +267,11 @@ ggplot(
   labs(x = "Years", y = "Ion Concentration", color = "Site ID") +
   theme(legend.justification = c("right", "top")) +
   scale_color_discrete(palette = "Set2") +
+  theme(
+    panel.background = element_rect(fill = "#f8f8f8"),
+    panel.grid.major = element_line(color = "grey"),
+    panel.grid.minor = element_line(color = "grey")
+  ) +
   facet_grid(
     vars(fct_relevel(
       as_factor(Figure_3_Reproduction$ion),
