@@ -24,7 +24,7 @@ Descriptions of these directories are found in the following sections:
 
 ### data Directory
 
-Raw data .csv files used in this analysis were sourced from [McDowell and International Institute Of Tropical Forestry (IITF) (2024)](#references) and are contained in [data](https://github.com/pr-scilla/pap214final/tree/main/data). 
+Raw data .csv files used in this analysis were sourced from [McDowell and International Institute Of Tropical Forestry (IITF) (2024)](#references) and are contained in the [data](https://github.com/pr-scilla/pap214final/tree/main/data) directory of this repository. 
 
 Units for water chemistry data were sourced from **LUQ_LTER_MDLs.csv**.
 
@@ -56,9 +56,9 @@ All draft code is in the [scratch](https://github.com/pr-scilla/pap214final/tree
 
 ## Contributors
 
-Priscilla Pierce. [https://github.com/pr-scilla](https://github.com/pr-scilla)
+Priscilla Pierce [@pr-scilla](https://github.com/pr-scilla)
 
-Sophia Soriano [https://github.com/ssoriano22](https://github.com/ssoriano22) and Natasha Clemencon [https://github.com/natashaclemencon](https://github.com/natashaclemencon) provided valuable peer contributions and peer feedback during the development of this analytical workflow.
+Sophia Soriano [@ssoriano22](https://github.com/ssoriano22) and Natasha Clemencon [@natashaclemencon](https://github.com/natashaclemencon) provided valuable peer contributions and feedback during the development of this analytical workflow.
 
 ## References 
 

@@ -266,4 +266,17 @@ ggplot(
   geom_line() +
   labs(x = "Years", y = "Ion Concentration", color = "Site ID") +
   theme(legend.justification = c("right", "top")) +
-  facet_grid(vars(Figure_3_Reproduction$ion), scales = "free", switch = "y")
+  scale_color_discrete(palette = "Set2") +
+  facet_grid(
+    vars(fct_relevel(
+      as_factor(Figure_3_Reproduction$ion),
+      "K_mgL",
+      "NO3N_ugL",
+      "Mg_mgL",
+      "Ca_mgL",
+      "NH4N_ugL"
+    )),
+    scales = "free",
+    switch = "y"
+  )
+ggsave("figs/figure-3-reproduction.png")
