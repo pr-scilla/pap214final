@@ -20,17 +20,12 @@ Water chemistry data for the period of interest were plotted for each site.
 
 Chemistry data for each ion are displayed in separate graphs.
 ```{r}
-# Plotting smoothed and joined data for all sites together ---------------
+library(tidyverse)
 
-sites_smoothed_joined_plot <- sites_smoothed_joined |>
-  pivot_longer(
-    cols = c(NH4N_ugL, Ca_mgL, Mg_mgL, NO3N_ugL, K_mgL),
-    names_to = "ion",
-    values_to = "concentration"
-  )
+Figure_3_Reproduction <- read_csv("../output/figure-3-reproduction-data.csv")
 
 ggplot(
-  data = sites_smoothed_joined_plot,
+  data = Figure_3_Reproduction,
   mapping = aes(
     x = window_start,
     y = concentration,
@@ -41,4 +36,5 @@ ggplot(
   geom_line() +
   scale_x_date(name = "Years") +
   facet_wrap(~ion, scales = "free")
+ggsave("../figs/figure-3-reproduction.png")
 ```

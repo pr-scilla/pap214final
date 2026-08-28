@@ -36,71 +36,23 @@ PRM_moving_averages <- moving_average(PRM_Truncated)
 
 # Join data for all sites into one data frame ----------------------------
 
-# SOPHIA ADDED THIS LINE TO REPLACE THE COMMENTED OUT FULL_JOINS BELOW
-sites_joined_clean <- rbind(BQ1_moving_averages,BQ2_moving_averages,BQ3_moving_averages,PRM_moving_averages)
+# rbind () suggested by Sophia Solano for combining sites into one data frame.
+sites_joined_clean <- rbind(
+  BQ1_moving_averages,
+  BQ2_moving_averages,
+  BQ3_moving_averages,
+  PRM_moving_averages
+)
 
-# sites_joined_clean <- BQ1_moving_averages |>
-#   full_join(
-#     BQ2_moving_averages,
-#     by = c(
-#       "window_start",
-#       "site_ID",
-#       "NH4N_ugL",
-#       "Ca_mgL",
-#       "K_mgL",
-#       "Mg_mgL",
-#       "NO3N_ugL"
-#     )
-#   ) |>
-#   full_join(
-#     BQ3_moving_averages,
-#     by = c(
-#       "window_start",
-#       "site_ID",
-#       "NH4N_ugL",
-#       "Ca_mgL",
-#       "K_mgL",
-#       "Mg_mgL",
-#       "NO3N_ugL"
-#     )
-#   ) |>
-#   full_join(
-#     PRM_moving_averages,
-#     by = c(
-#       "window_start",
-#       "site_ID",
-#       "NH4N_ugL",
-#       "Ca_mgL",
-#       "K_mgL",
-#       "Mg_mgL",
-#       "NO3N_ugL"
-#     )
-#   )
+# Create data frame to use in figure 3 reproduction plot ----------------------
 
-# Write .csv for data frame of joined water chemistry data for all sites ----
-
-write_csv(sites_joined_clean, "output/sites_joined_clean.csv")
-
-
-# Plot Figure 3 reproduction ---------------------------------------------
-
-Figure_3_Reproduction <- sites_joined_clean |>
+Figure_3_Reproduction_Data <- sites_joined_clean |>
   pivot_longer(
     cols = c(NH4N_ugL, Ca_mgL, Mg_mgL, NO3N_ugL, K_mgL),
     names_to = "ion",
     values_to = "concentration"
   )
 
-ggplot(
-  data = Figure_3_Reproduction,
-  mapping = aes(
-    x = window_start,
-    y = concentration,
-    color = site_ID
-  )
-) +
-  geom_point() +
-  geom_line() +
-  scale_x_date(name = "Years") +
-  facet_wrap(~ion, scales = "free")
-ggsave("figs/figure-3-reproduction.png")
+# Write .csv for Figure_3_Reproduction_Data data frame ------------------------
+
+write_csv(Figure_3_Reproduction_Data, "output/figure-3-reproduction-data.csv")
