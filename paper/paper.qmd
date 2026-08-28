@@ -32,8 +32,6 @@ Average concentrations for each ion are displayed in separate graphs.
 
 The product of this analysis suggests that the ammonium-N (NH4N_ugL) concentration data from late 1988 through the end of the sampling period of interest are missing from the raw data files.
 
-![figure-3-reproduction.png](../figs/figure-3-reproduction.png)
-
 ```{r}
 library(tidyverse)
 
