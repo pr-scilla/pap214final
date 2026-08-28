@@ -3,7 +3,7 @@
 ## Background
 The goal of this analysis is to approximate Figure 3 from [Schaefer et al. (2000)](https://github.com/pr-scilla/pap214final/blob/main/README.md), which shows stream chemistry changes at four Puerto Rican stream sample sites pre and post Hurricane Hugo.
 
-Hurricane Hugo made landfall on Puerto Rico in late September of 1989. This analysis shows 9 week moving average concentrations of potassium (K_mgL),  nitrate-N (NO3N_ugL), magnesium (Mg_mgL), calcium (Ca_mgL) and ammonium-N (NH4N_ugL) between January 1, 1988 and December 31, 1994 at the following sample sites:
+Hurricane Hugo made landfall on Puerto Rico in late September of 1989. This outputs of this analysis show 9 week moving average concentrations of potassium (K_mgL),  nitrate-N (NO3N_ugL), magnesium (Mg_mgL), calcium (Ca_mgL) and ammonium-N (NH4N_ugL) between January 1, 1988 and December 31, 1994 at the following sample sites:
 
 - Bisley Quebrada Cuenca 1 (BQ1)
 
@@ -50,6 +50,7 @@ ggplot(
   geom_line() +
   labs(x = "Years", y = "Ion Concentration", color = "Site ID") +
   theme(legend.justification = c("right", "top")) +
+  scale_color_discrete(palette = "Set2") +
   facet_grid(
     vars(fct_relevel(
       as_factor(Figure_3_Reproduction$ion),
@@ -57,7 +58,7 @@ ggplot(
       "NO3N_ugL",
       "Mg_mgL",
       "Ca_mgL",
-      "NH4N_ugL" # Reorganize ions to display graphs in same order as Figure 3
+      "NH4N_ugL"
     )),
     scales = "free",
     switch = "y"
